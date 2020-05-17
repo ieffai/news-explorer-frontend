@@ -13,10 +13,8 @@ Frontend part.
 
 * **Links**
 
-  http://olehadash.xyz/ <br />
-  https://olehadash.xyz/ <br />
-  http://www.olehadash.xyz/ <br />
-  https://www.olehadash.xyz/
+  https://ieffai.github.io/news-explorer-frontend/ <br />
+
 
 <reserved>
 
