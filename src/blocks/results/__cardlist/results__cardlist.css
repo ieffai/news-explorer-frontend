@@ -1,0 +1,27 @@
+.results__cardlist {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 16px;
+  width: 100%;
+  margin-bottom: 64px;
+}
+
+@media screen and (max-width: 1023px) {
+  .results__cardlist {
+    grid-gap: 8px;
+    margin-bottom: 29px;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .results__cardlist {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media screen and (max-width: 484px) {
+  .results__cardlist {
+    grid-template-columns: repeat(1,1fr);
+  }
+}

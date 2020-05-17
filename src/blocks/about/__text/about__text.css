@@ -1,0 +1,27 @@
+.about__text {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  margin: 0px;
+  margin-bottom: 24px;
+  margin-top: 0px;
+  word-wrap: break-word;
+}
+
+@media screen and (max-width: 1023px) {
+  .about__text:first-of-type {
+    margin-top: 10px;
+  }
+  .about__text {
+    margin-top: 23px;
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about__text:first-of-type {
+    margin-top: 16px;
+  }
+  .about__text {
+    margin-top: 23px;
+  }
+}

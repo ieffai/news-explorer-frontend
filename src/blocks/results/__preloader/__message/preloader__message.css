@@ -1,0 +1,14 @@
+.preloader__message {
+  margin: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  color: #b6bcbf;
+}
+
+@media screen and (max-width: 767px) {
+  .preloader__message {
+    margin: 20px 0 0 0;
+    font-size: .875rem;
+    text-align: center;
+  }
+}

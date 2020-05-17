@@ -1,0 +1,21 @@
+.card__image {
+  background-image: url(../../../../images/img.png);
+  background-size: cover;
+  min-height:272px;
+  background-position: center;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+}
+
+@media screen and (max-width: 1023px) {
+  .card__image {
+    min-height:150px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card__image {
+    min-height:196px;
+  }
+}

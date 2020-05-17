@@ -1,0 +1,27 @@
+.header__list {
+  display: flex;
+  list-style-type: none;
+  position: relative;
+  margin: 0;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .header__list {
+    position: absolute;
+    align-items: flex-start;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 58px 16px 23px 16px;
+    flex-direction: column;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .header__list li{
+    margin-top: 31px;
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,7 @@
+.popup__close {
+  align-self: flex-end;
+  position: relative;
+  cursor: pointer;
+  top: -47px;
+  right: -75px;
+ }

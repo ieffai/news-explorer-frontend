@@ -1,0 +1,13 @@
+.search-form {
+  display: flex;
+  position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  .search-form {
+    flex-direction: column;
+  }
+}
+
+@import url(./__input/search-form__input.css);
+@import url(./__button/search-form__button.css);

@@ -1,0 +1,8 @@
+.btn {
+  box-sizing: border-box;
+  border-radius: 100px;
+  cursor: pointer;
+  color: inherit;
+}
+
+@import url(./__text/btn__text.css);

@@ -1,0 +1,15 @@
+.bookmark__keyword {
+  display: none;
+  position: absolute;
+  left: 24px;
+  padding: 8px 12px;
+  margin-right: 124px;
+  border-radius: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: .875rem;
+  line-height: 1.5rem;
+  background-color: #ffffff;
+}

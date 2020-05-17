@@ -1,0 +1,27 @@
+.footer {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: row;
+  padding: 30px 105px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 1023px) {
+  .footer {
+    padding: 24px 43px 21px 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .footer {
+    padding: 20px 16px;
+    flex-direction: column-reverse;
+  }
+}
+@import url(./__copyright/footer__copyright.css);
+@import url(./__menu/footer__menu.css);
+@import url(./__links/footer__links.css);
+@import url(./__link/footer__link.css);
+@import url(./__socials/footer__socials.css);
+@import url(./__social/footer__social.css);

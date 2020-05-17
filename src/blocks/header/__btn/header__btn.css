@@ -1,0 +1,28 @@
+.header__btn {
+  display: flex;
+  align-self: center;
+  line-height: 1.5;
+  font-size: 1.125rem;
+  font-weight: 500;
+  padding: 9px 17px;
+  border: 1px solid;
+  margin-left: 33px;
+  color: inherit;
+  align-items: center;
+}
+
+@media screen and (max-width: 1023px) {
+  .header__btn {
+    font-size: 1rem;
+    margin-left: 18px;
+    padding: 8px 14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__btn {
+    margin-left: 0px;
+    justify-content: center;
+    padding: 19px 14px;
+  }
+}

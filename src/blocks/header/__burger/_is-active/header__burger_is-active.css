@@ -1,0 +1,9 @@
+.header__burger_is-active.header__burger::before {
+  transform: rotate(45deg);
+  top: 3px;
+}
+
+.header__burger_is-active.header__burger::after {
+  transform: rotate(-45deg);
+  bottom: 3px;
+}
