@@ -16,10 +16,10 @@ export default class Header extends Component {
       this.domElement.classList.toggle('header__burger_is-active');
       a.classList.toggle('header__menu_show');
     }
-    // if(event.target.closest('#headerLoginBtn')){
-    //   this.domElement.classList.toggle('header__burger_is-active');
-    //   a.classList.toggle('header__menu_show');
-    // }
+    if(event.target.closest('#headerLoginBtn')){
+      this.domElement.classList.remove('header__burger_is-active');
+      a.classList.remove('header__menu_show');
+    }
 
   }
 
