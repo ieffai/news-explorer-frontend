@@ -17,6 +17,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  opacity: .8;
+}
+
 /* background */
 @import url(../../blocks/background-image/background-image.css);
 

@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  opacity: .8;
+}
+
 /* Хедер */
 @import url(../../blocks/header/header.css);
 
