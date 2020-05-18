@@ -1,7 +1,21 @@
+.popup__close,
+.popup__close::after {
+  border-top: 3px solid white;
+  width: 30px;
+}
+
 .popup__close {
   align-self: flex-end;
   position: relative;
   cursor: pointer;
-  top: -47px;
-  right: -75px;
+  top: -58px;
+  right: -76px;
+  transform: rotate(45deg);
+ }
+
+ .popup__close::after {
+  content: '';
+  position: absolute;
+  transform: rotate(90deg);
+  top: -3px;
  }
