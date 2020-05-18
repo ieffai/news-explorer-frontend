@@ -9,6 +9,7 @@
   margin-left: 33px;
   color: inherit;
   align-items: center;
+  background-color: transparent;
 }
 
 @media screen and (max-width: 1023px) {
@@ -24,5 +25,6 @@
     margin-left: 0px;
     justify-content: center;
     padding: 19px 14px;
+    width: 100%;
   }
 }
