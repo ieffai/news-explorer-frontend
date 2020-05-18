@@ -14,12 +14,9 @@
 <body>
   <div class="root">
 
-    <!-- <div class="popup"> -->
-
-      <!-- <form class="popup__body" id="popupSignIn" novalidate>
-        <svg class="popup__close" id="popupClose" width="28" height="27" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path stroke="#fff" stroke-width="3" d="M1.939 25.939l24-24m-23.878 0l24 24"/>
-        </svg>
+    <div class="popup popup_signUp">
+      <form class="popup__body" id="popupSign" novalidate>
+        <div class="popup__close"></div>
           <h2 class="popup__title">Регистрация</h2>
           <div class="popup__field">
               <h3 class="popup__input-name">Email</h3>
@@ -41,12 +38,11 @@
           <span class="popup__alternative">или
             <span class="popup__link" id="loginBtn" >Войти</span>
           </span>
-      </form> -->
-
-      <!-- <form class="popup__body" id="popupLogin" novalidate>
-        <svg class="popup__close" id="popupClose" width="28" height="27" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path stroke="#fff" stroke-width="3" d="M1.939 25.939l24-24m-23.878 0l24 24"/>
-        </svg>
+      </form>
+    </div>
+    <div class="popup popup_login">
+      <form class="popup__body" id="popupLogin" novalidate>
+        <div class="popup__close"></div>
           <h2 class="popup__title">Вход</h2>
           <div class="popup__field">
               <h3 class="popup__input-name">Email</h3>
@@ -61,18 +57,17 @@
           <span class="popup__error">Неправильные почта или пароль</span>
           <button class="btn popup__btn" id="loginSubmit" type="submit" disabled>Войти</button>
           <span class="popup__alternative">или
-            <span class="popup__link" id="signBtn">Зарегистрироваться</span>
+            <span class="popup__link" id="popupSignBtn">Зарегистрироваться</span>
           </span>
-      </form> -->
-
-      <!-- <div class="popup__body" id="popupSuccess">
-        <svg class="popup__close" id="popupClose" width="28" height="27" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path stroke="#fff" stroke-width="3" d="M1.939 25.939l24-24m-23.878 0l24 24"/>
-        </svg>
+      </form>
+    </div>
+    <div class="popup popup_succes">
+      <div class="popup__body" id="popupSuccess">
+        <div class="popup__close"></div>
           <h2 class="popup__title">Пользователь успешно зарегистрирован!</h2>
           <span class="popup__in">Выполнить вход</span>
-      </div> -->
-    <!-- </div> -->
+      </div>
+    </div>
 
     <div class="background-image">
 
@@ -98,11 +93,11 @@
                 </li>
 
                 <li class="unvisible">
-                  <a href="" class="header__btn btn unvisible">Авторизоваться</a>
+                  <a href="" class="header__btn btn unvisible" id="headerLoginBtn">Авторизоваться</a>
                 </li>
 
                 <li>
-                  <a href="" class="header__btn btn">
+                  <button class="header__btn btn">
 
                     <span class="btn__text">Грета</span>
                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,7 +105,7 @@
                       d="M10 6H6v12h4v2H6a2 2 0 01-2-2V6a2 2 0 012-2h4v2zm7.586 7l-4.293 4.134 1.414 1.362 6.707-6.459-6.707-6.459-1.414 1.362 4.293 4.134H8V13h9.586z"
                       fill="#fff"/>
                     </svg>
-                  </a>
+                  </button>
                 </li>
 
             </ul>
