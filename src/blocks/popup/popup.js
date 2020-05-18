@@ -4,11 +4,11 @@ import './popup.css';
 
 export default class Popup extends Component {
   constructor (...args) {
-  super(...args);
+    super(...args);
 
-  this.show = this.show.bind(this);
-  this.hide = this.hide.bind(this);
-}
+    this.show = this.show.bind(this);
+    this.hide = this.hide.bind(this);
+  }
 
   show(event) {
     const a = document.getElementById('popupSignUp');
