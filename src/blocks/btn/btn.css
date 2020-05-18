@@ -3,6 +3,8 @@
   border-radius: 100px;
   cursor: pointer;
   color: inherit;
+  outline: none;
 }
+
 
 @import url(./__text/btn__text.css);
