@@ -2,15 +2,22 @@ import "./index.css";
 
 import Popup from "../../blocks/popup/popup";
 
-const popup = document.querySelector('.popup');
-const popupMain = new Popup(popup);
+const signUp = document.getElementById('popupSignUp');
+const logIn = document.getElementById('popupLogin');
+
+
+const signUpPopup = new Popup(signUp);
+const logInPopup = new Popup(logIn);
+
 const root = document.querySelector('.root');
-const closeBtn = document.querySelector('.popup__close');
-root.addEventListener('click', (event) => {
-  popupMain.show(event);
-  });
+
 root.addEventListener('click', () => {
-  popupMain.hide(event);
+  logInPopup.show(event);
+  });
+
+root.addEventListener('click', () => {
+  signUpPopup.hide(event);
+  logInPopup.hide(event);
   });;
 
 
