@@ -5,8 +5,10 @@ import Header from "../../js/components/Header";
 import Burger from "../../js/components/Burger";
 import Form from "../../js/components/Form";
 import NewsApi from "../../js/api/NewsApi";
+import MainApi from "../../js/api/MainApi";
 import NewsCardList from "../../js/components/NewsCardList";
 import NEWS_API_CONFIG from "../../js/constants/newsApiConfig";
+import MAIN_API_CONFIG from "../../js/constants/mainApiConfig";
 import NewsCard from "../../js/components/NewsCard";
 
 const props = {
@@ -34,6 +36,7 @@ const form = new Form();
 const burger = new Burger();
 const header = new Header(props);
 const newsApi = new NewsApi(NEWS_API_CONFIG);
+const mainApi = new MainApi(MAIN_API_CONFIG);
 const newsCardList = new NewsCardList(searchContainer, cardListContainer);
 const signUpPopup = new Popup(popup, popupSignUp);
 const logInPopup = new Popup(popup, popupLogIn);
@@ -65,7 +68,6 @@ const signUpPopupFunc = () => {
 const showMore = () => {
   newsCardList.showMoreFunc();
 }
-
 const markBtn = (event) => {
   newsCard.markUnmark(event);
 }

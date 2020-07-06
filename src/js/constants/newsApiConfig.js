@@ -1,8 +1,8 @@
 export default {
-  URL: 'https://newsapi.org/v2',
+  URL: 'http://newsapi.org/v2',
   LANG: 'ru',
   WHERE_LOOKING: 'qInTitle',
-  KEY: '6b548abf117b49e3857d6096d2297a1c',
+  KEY: '0c2a0e2d23f74966ae4a6a0ac521a914',
   SORT_BY: 'popularity',
   DAY_LATEST_NEWS: 1,
   PAGE_SIZE: 100

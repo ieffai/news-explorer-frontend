@@ -30,7 +30,7 @@ export default class Template {
   _keyWord(control) {
     return `<div class="bookmark__keyword ${control}"></div>`
   }
-  card(isSaved = true, isLogged = true, isMarked = false) {
+  card(isSaved = false, isLogged = false, isMarked = false) {
     const element = document.createElement('div');
     const flagBtn = `<button class="bookmark__icon ${isMarked ? 'bookmark__icon_marked' : ''}"
                     ${isLogged ? '' : 'disabled' }>
