@@ -1,0 +1,12 @@
+.btn_active {
+  background-color: #2f71e5;
+  color: #ffffff;
+}
+
+.btn_active:hover {
+  background-color: #347eff;
+}
+
+.btn_active:active {
+  background-color: #2a65cc;
+}

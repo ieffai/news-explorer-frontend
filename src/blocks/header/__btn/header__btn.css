@@ -12,6 +12,10 @@
   background-color: transparent;
 }
 
+.header__btn:hover {
+  opacity: .8;
+}
+
 @media screen and (max-width: 1023px) {
   .header__btn {
     font-size: 1rem;

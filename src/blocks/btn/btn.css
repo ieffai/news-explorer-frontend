@@ -2,9 +2,9 @@
   box-sizing: border-box;
   border-radius: 100px;
   cursor: pointer;
-  color: inherit;
   outline: none;
 }
 
 
 @import url(./__text/btn__text.css);
+@import url(./_active/btn_active.css);

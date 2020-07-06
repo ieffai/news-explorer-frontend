@@ -4,28 +4,23 @@
   background-color: #ffffff;
   border-radius: 8px;
   cursor: pointer;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 5px;
-}
-
-.bookmark__icon_color {
+  outline: none;
+  border: none;
   fill: #ffffff;
   stroke: #B6BCBF;
 }
 
-.bookmark__icon:hover .bookmark__icon_color {
+.bookmark__icon:hover {
   fill: #ffffff;
   stroke: #000000;
 }
 
 .bookmark__icon:hover+.bookmark__tip {
-display: flex;
+  display: flex;
 }
 
-.bookmark__icon_saved {
-  fill:#2F71E5;
-  stroke: #2F71E5;
-}
 
