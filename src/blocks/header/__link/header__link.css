@@ -1,0 +1,26 @@
+.header__link {
+  color: inherit;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  font-style: normal;
+  padding-bottom: 23px;
+  margin-left: 35px;
+}
+
+@media screen and (max-width: 1023px) {
+  .header__link {
+    font-size: 1rem;
+    padding-bottom: 18px;
+    margin-left: 19px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__link {
+    margin-left: 0px;
+    padding-bottom: 0;
+  }
+}
+
+

@@ -1,0 +1,11 @@
+.card__bookmark {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 24px;
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  z-index: 99;
+}

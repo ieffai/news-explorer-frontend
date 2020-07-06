@@ -1,0 +1,4 @@
+.header__burger_theme_light::before,
+.header__burger_theme_light::after {
+  background-color: #ffffff;
+}

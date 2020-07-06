@@ -1,0 +1,30 @@
+.popup__close,
+.popup__close::after {
+  border-top: 3px solid white;
+  width: 30px;
+}
+
+.popup__close {
+  align-self: flex-end;
+  position: relative;
+  cursor: pointer;
+  top: -58px;
+  right: -76px;
+  transform: rotate(45deg);
+ }
+
+ .popup__close::after {
+  content: '';
+  position: absolute;
+  transform: rotate(90deg);
+  top: -3px;
+ }
+
+ @media screen and (max-width: 767px) {
+  .popup__close {
+    top: -53px;
+    right: -4px;
+  }
+}
+
+

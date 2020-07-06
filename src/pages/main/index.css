@@ -1,0 +1,54 @@
+/* Обуляем стили */
+@import url(../../vendor/normalize.css);
+
+/* Подключаем шрифты */
+@import url(../../vendor/fonts.css);
+
+/* Root */
+@import url(../../blocks/body/body.css);
+@import url(../../blocks/root/root.css);
+
+
+a:visited {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: .8;
+}
+
+/* background */
+@import url(../../blocks/background-image/background-image.css);
+
+/* popup */
+@import url(../../blocks/popup/popup.css);
+
+/* Хедер */
+
+@import url(../../blocks/header/header.css);
+
+/* секции */
+
+  /* search */
+  @import url(../../blocks/search/search.css);
+  @import url(../../blocks/search-form/search-form.css);
+
+
+  /* results */
+  @import url(../../blocks/results/results.css);
+
+  /* about */
+  @import url(../../blocks/about/about.css);
+
+
+  /* Футер */
+  @import url(../../blocks/footer/footer.css);
+
+/* Общие */
+  @import url(../../blocks/btn/btn.css);
+  @import url(../../blocks/unvisible/unvisible.css);
+  @import url(../../blocks/unvisible/visible.css);

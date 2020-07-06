@@ -1,0 +1,28 @@
+.info {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  background: #ffffff;
+  padding: 40px 104px 56px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 1023px) {
+  .info {
+    padding: 24px 40px 32px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .info {
+    padding: 64px 16px 32px;
+  }
+}
+
+
+
+@import url(./__subtitle/info__subtitle.css);
+@import url(./__title/info__title.css);
+@import url(./__keywords/info__keywords.css);
+@import url(./__keyword/info__keyword.css);

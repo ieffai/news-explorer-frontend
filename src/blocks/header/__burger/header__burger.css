@@ -1,0 +1,33 @@
+.header__burger {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .header__burger {
+    display: flex;
+    position: relative;
+    width: 25px;
+    height: 8px;
+    padding-right: 11px;
+  }
+
+  .header__burger::before,
+  .header__burger::after
+   {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    left: 0;
+    transition: all .2s ease 0s;
+  }
+
+  .header__burger::before {
+    top: -1px;
+  }
+
+  .header__burger::after {
+    bottom: 0;
+  }
+}
+

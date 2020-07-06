@@ -1,0 +1,22 @@
+.results__no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 450px 80px;
+}
+
+@media screen and (max-width: 1391px) {
+  .results__no-results {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .results__no-results {
+    padding: 0;
+  }
+}
+
+
+@import url(./__error-name/no-results__error-name.css);
+@import url(./__error-message/no-results__error-message.css);

@@ -1,0 +1,11 @@
+.info__keywords {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+}
+
+@media screen and (max-width: 1023px) {
+  .info__keywords {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}

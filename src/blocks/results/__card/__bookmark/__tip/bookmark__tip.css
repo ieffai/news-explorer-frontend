@@ -1,0 +1,13 @@
+.bookmark__tip {
+  display: none;
+  height: 40px;
+  width: 182px;
+  border-radius: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: .625rem;
+  line-height: .75rem;
+  background-color: #ffffff;
+}

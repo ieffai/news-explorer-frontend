@@ -1,0 +1,25 @@
+.search-form__button{
+  padding: 18px 53px 19px 54px;
+  color: #B6BCBF;
+  position: absolute;
+  right: 0;
+  border: 0;
+  transition: background-color 0.2s ease-in;
+  outline: none;
+  line-height: 1.5;
+  font-size: 1.125rem;
+  font-weight: 500;
+  }
+
+@media screen and (max-width: 1023px) {
+  .search-form__button{
+    padding: 15px 45px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .search-form__button{
+    position: relative;
+    margin-left: 0;
+  }
+}

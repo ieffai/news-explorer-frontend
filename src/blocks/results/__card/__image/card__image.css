@@ -1,0 +1,19 @@
+.card__image {
+  min-height:272px;
+  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+}
+
+@media screen and (max-width: 1023px) {
+  .card__image {
+    min-height:150px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card__image {
+    min-height:196px;
+  }
+}

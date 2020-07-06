@@ -1,0 +1,6 @@
+.card__link {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+}

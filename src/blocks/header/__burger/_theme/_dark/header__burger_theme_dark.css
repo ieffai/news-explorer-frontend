@@ -1,0 +1,4 @@
+.header__burger_theme_dark::before,
+.header__burger_theme_dark::after {
+  background-color: #000000;
+}

@@ -1,0 +1,19 @@
+.card__container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px 24px 24px;
+  height: inherit;
+  position: relative;
+}
+
+@media screen and (max-width: 1023px) {
+  .card__container {
+    padding: 12px 15px 18px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card__container {
+    padding: 14px 16px 18px;
+  }
+}

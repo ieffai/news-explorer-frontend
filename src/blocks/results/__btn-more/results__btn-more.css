@@ -1,0 +1,31 @@
+.results__btn-more {
+  background: #ffffff;
+  border-radius: 80px;
+  border: none;
+  align-self: center;
+  padding: 18px 84px;
+  line-height: 1.5;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 80px;
+}
+
+.results__btn-more:hover {
+  opacity: 0.6;
+}
+
+.results__btn-more:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 1023px) {
+  .results__btn-more {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .results__btn-more {
+    margin-bottom: 32px;
+  }
+}

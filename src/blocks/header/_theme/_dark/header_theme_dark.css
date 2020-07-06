@@ -1,0 +1,9 @@
+.header_theme_dark {
+  color: black;
+  background: #fff;
+
+}
+
+.header_theme_dark::after {
+  box-shadow: inset 0px -1px 0px #d1d2d6;
+}

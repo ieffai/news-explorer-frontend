@@ -1,0 +1,14 @@
+.footer__social {
+  width: 20px;
+  height: 20px;
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 1023px) {
+  .footer__social {
+    margin-left: 31px;
+  }
+}
+
+@import url(./_fb/footer__social_fb.css);
+@import url(./_gh/footer__social_gh.css);
