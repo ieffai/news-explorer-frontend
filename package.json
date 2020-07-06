@@ -7,7 +7,7 @@
     "build": "rimraf dist && webpack --mode production",
     "dev": "webpack-dev-server --mode development --open --watch",
     "deploy-gh": "gh-pages -d dist",
-    "deplsaoy": "npm run build && scp -r ./dist/* samiq@84.201.130.82:/home/samiq/news-explorer"
+    "deploy": "npm run build && scp -r ./dist/* samiq@84.201.130.82:/home/samiq/news-explorer"
   },
   "repository": {
     "type": "git",
