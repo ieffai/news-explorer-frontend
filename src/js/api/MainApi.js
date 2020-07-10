@@ -7,7 +7,7 @@ export default class MainApi {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject(`Ошибка: ${res.status}`);
+    return Promise.reject(res);
   }
 
   createUser(options) {
@@ -15,6 +15,7 @@ export default class MainApi {
     return fetch(`${this.config.URL}/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
       body: JSON.stringify({
         email,
         password,
@@ -79,4 +80,5 @@ export default class MainApi {
     })
     .then(this._getResponse);
   }
+
 }

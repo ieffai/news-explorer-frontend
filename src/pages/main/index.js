@@ -14,12 +14,11 @@ import NewsCard from "../../js/components/NewsCard";
 const props = {
   theme: 'light',
   focus: 0,
-  userName: '',
-  isLoggedIn: false
+  isLoggedIn: localStorage.getItem('token') ? true : false,
+  isMain: true,
 };
-let isLogged = props.isLoggedIn;
+
 const cards = {
-  classCopy: [],
   foundedNews: [],
   savedNews: []
 };
@@ -29,6 +28,7 @@ let saved = cards.savedNews;
 const popup = document.querySelector('.popup');
 const popupSignUp = document.getElementById('popupSignUp');
 const popupLogIn = document.getElementById('popupLogin');
+const popupSuccess = document.getElementById('popupSuccess');
 const searchContainer = document.querySelector('.results');
 const cardListContainer = searchContainer.children[1];
 
@@ -40,6 +40,7 @@ const mainApi = new MainApi(MAIN_API_CONFIG);
 const newsCardList = new NewsCardList(searchContainer, cardListContainer);
 const signUpPopup = new Popup(popup, popupSignUp);
 const logInPopup = new Popup(popup, popupLogIn);
+const successPopup = new Popup(popup, popupSuccess);
 const newsCard = new NewsCard();
 
 const submit = () => {
@@ -49,12 +50,11 @@ const submit = () => {
   newsApi
   .getNews(keyword)
   .then(result => {
-    newsApi.parseResults(result, keyword, found);
+    newsApi.parseResults(result, keyword, found, props.isLoggedIn, saved);
     newsCardList.renderResults(found);
   })
   .catch((err) => {
-    newsCardList._error(true, error);
-    console.log(err)
+    newsCardList._error(true, err);
   });
 }
 const logInPopupFunc = () => {
@@ -65,11 +65,79 @@ const signUpPopupFunc = () => {
   signUpPopup.close(event);
   logInPopup.open(event);
 }
+
+const successPopupFunc = () => {
+  signUpPopup.close(event);
+  successPopup.open(event);
+}
+
 const showMore = () => {
   newsCardList.showMoreFunc();
 }
-const markBtn = (event) => {
-  newsCard.markUnmark(event);
+
+const signUp = (event) => {
+  event.preventDefault();
+    const signupForm = document.querySelector('.popup__body');
+    const userData = form.getFormData(signupForm);
+    mainApi
+      .createUser(userData)
+      .then(() => successPopupFunc())
+      .catch((err) => form.serverError(err));
+};
+
+const logIn = (event) => {
+  event.preventDefault();
+  const signinForm = document.querySelector('.popup__body');
+  const userData = form.getFormData(signinForm);
+  mainApi
+  .login(userData)
+  .then(res => {
+    localStorage.setItem('token', res.token);
+    props.isLoggedIn = true;
+    header.renderLinks();
+    header.getUserName(mainApi.getUser());
+    logInPopup.close();
+  })
+
+  .catch((err) => form.serverError(err));
+}
+
+const logOut = () => {
+  props.isLoggedIn = false;
+  localStorage.removeItem('token');
+  header.renderLinks();
+
+};
+
+const saveCard = (element) => {
+  let container = element.closest('.results__card');
+  const cardData = newsCard.getCardData(container);
+  mainApi.createArticle(cardData)
+  .then(res =>  {
+    container.setAttribute('_id', res._id);
+    newsCard.markUnmark(element);
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+};
+
+const delCard = (element) => {
+  const container = element.closest('.results__card');
+  let articleId = container.getAttribute('_id');
+  mainApi.delArticle(articleId)
+  .then(() =>  {
+    container.removeAttribute('_id');
+    newsCard.markUnmark(element);
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+}
+
+const tipControl = (element) => {
+  const tip = element.nextElementSibling;
+  newsCard.toggleTip(tip, props.isLoggedIn);
 }
 
 document.addEventListener('click', (event) => {
@@ -88,12 +156,29 @@ document.addEventListener('click', (event) => {
     showMore();
   }
   if (event.target.closest('.bookmark__icon')) {
-    markBtn(event);
+    event.target.classList.contains('bookmark__icon_marked')
+    ? delCard(event.target)
+    : saveCard(event.target);
   }
+  if (event.target.classList.contains('popup__btn')) {
+    event.target.id === 'signSubmit'
+    ? signUp(event)
+    : logIn(event);
+  }
+  if (event.target.classList.contains('header__btn')) {
+    logOut();
+  }
+
   form.render();
   burger.openClose(event);
 });
+document.addEventListener('mouseover', (event) => {
+  if (event.target.closest('.bookmark__icon')) {
+    tipControl(event.target);
+  }
+});
 
 header.render();
+props.isLoggedIn ? header.getUserName(mainApi.getUser()) : '';
 
 

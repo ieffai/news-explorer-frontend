@@ -6,6 +6,9 @@ const {
   BAD_PASSWORD,
   BAD_EMAIL,
   EMPTY_FIELD,
+  DEFAULT_ERROR,
+  DB_CONFLICT,
+  FORBIDDEN,
 } = constants;
 
 export default class Form extends BaseComponent {
@@ -15,6 +18,7 @@ export default class Form extends BaseComponent {
     this._validateForm = this._validateForm.bind(this);
     this.form = document.forms.searchForm;
     this.field = this.form.elements.searchField;
+    this.popupForm = document.forms.signUpForm;
   }
 
   _setErrMessage(element, message) {
@@ -90,4 +94,32 @@ export default class Form extends BaseComponent {
     ]);
   }
 
+  _setServerError(status, message) {
+    const element = document.querySelector('.popup__server-error');
+    this._setErrMessage(element, message);
+    console.log(`Ошибка ${status}`);
+  }
+
+  serverError(error) {
+    const status = error.status;
+    if (!error.ok) {
+      error.text()
+      .then((err) => {
+        this._setServerError(status, JSON.parse(err).message)
+      });
+      return;
+    }
+  }
+
+  getFormData(formName) {
+    const formValues = {};
+    const formData = formName.elements;
+    Array.from(formData).forEach(element => {
+      if (element.classList.contains('popup__input')) {
+        const valueName = element.name;
+        formValues[valueName] = element.value;
+      }
+    });
+  return formValues;
+  }
 }

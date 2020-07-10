@@ -1,5 +1,5 @@
 .card__bookmark {
-  display: flex;
+  display: none;
   flex-direction: row-reverse;
   padding: 24px;
   justify-content: flex-start;

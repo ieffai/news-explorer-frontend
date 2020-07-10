@@ -78,6 +78,11 @@ export default class NewsCardList extends BaseComponent {
     }
   }
 
+  addToSaved(parsedId, card) {
+    card._id = parsedId;
+    return card
+  }
+
   renderResults(articles) {
     setTimeout(this._clearContent(), 50000);
     this._clearCardList(this.newsCards);

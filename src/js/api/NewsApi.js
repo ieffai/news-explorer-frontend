@@ -19,9 +19,8 @@ export default class NewsApi {
     .then(this._getResponse);
   }
 
-  _articleData(data, keyword, _id) {
+  _articleData(data, keyword) {
     return {
-      _id,
       keyword,
       title: data.title,
       text: data.description,
@@ -32,17 +31,30 @@ export default class NewsApi {
     };
   }
 
-  _parseArticleData(article, keyword, _id, foundArticles) {
-    const parsedArticle = this._articleData(article, keyword, _id);
+  _getMarkedNews(article, list) {
+    for (let i = 0; i < list.length; i += 1) {
+      if (article.title.startsWith(list[i].title.substring(0, 20))) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  _parseArticleData(article, keyword, foundArticles, isLoggedIn, savedArticles) {
+    const parsedArticle = this._articleData(article, keyword);
     const newsCard = new NewsCard(parsedArticle);
-    foundArticles.push(newsCard.create());
+    foundArticles.push(newsCard.create(false, isLoggedIn));
   }
 
-  parseResults(result, keyword, foundArticles) {
+  parseResults(result, keyword, foundArticles, isLoggedIn, savedArticles) {
     const { articles } = result;
-    articles.forEach((article, _id) => this._parseArticleData(article, keyword, _id, foundArticles));
+    articles.forEach((article) => this._parseArticleData(
+      article,
+      keyword,
+      foundArticles,
+      isLoggedIn,
+      savedArticles
+    ));
   }
-
-
 }
 
