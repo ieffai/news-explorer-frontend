@@ -1,10 +1,10 @@
 export default class BaseComponent {
-  constructor () {
-      this.events = [];
+  constructor() {
+    this.events = [];
   }
 
   setHandlers(listeners) {
-    listeners.forEach(listener => {
+    listeners.forEach((listener) => {
       this._addListener(listener);
       this.events.push(listener);
     });

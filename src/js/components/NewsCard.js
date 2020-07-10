@@ -1,29 +1,27 @@
-import BaseComponent from "./BaseComponent";
-import Template from "./Template";
-import MainApi from "../api/MainApi";
-import MAIN_API_CONFIG from "../constants/mainApiConfig";
+import BaseComponent from './BaseComponent';
+import Template from './Template';
 
 const template = new Template();
-const mainApi = new MainApi(MAIN_API_CONFIG);
 
 export default class NewsCard extends BaseComponent {
   constructor(data) {
     super();
     this.data = data;
     this.card = null;
-
   }
 
   _parseDate(date) {
     const parsedDate = new Date(date);
     return `${parsedDate.toLocaleString('ru', {
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     })}, ${parsedDate.getFullYear()}`;
   }
 
   _setContent(element) {
-    const {keyword, title, text, date, source, link, image } = this.data;
+    const {
+      keyword, title, text, date, source, link, image,
+    } = this.data;
     element.querySelector('.bookmark__keyword').textContent = keyword;
     element.querySelector('.card__title').textContent = title;
     element.querySelector('.card__text').textContent = text;
@@ -37,15 +35,15 @@ export default class NewsCard extends BaseComponent {
 
   markUnmark(event) {
     if (event.classList.contains('bookmark__icon')) {
-    event.classList.toggle('bookmark__icon_marked');
+      event.classList.toggle('bookmark__icon_marked');
     }
   }
 
   toggleTip(event, isLogged) {
     event.classList.toggle('visible');
-    isLogged
-    ? event.textContent = 'Сохранить'
-    : ''
+    if (isLogged) {
+      event.textContent = 'Сохранить';
+    }
   }
 
   getCardData(element) {

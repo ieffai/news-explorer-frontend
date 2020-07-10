@@ -19,10 +19,10 @@ export default class MainApi {
       body: JSON.stringify({
         email,
         password,
-        name
-      })
+        name,
+      }),
     })
-    .then(this._getResponse);
+      .then(this._getResponse);
   }
 
   login(options) {
@@ -33,29 +33,31 @@ export default class MainApi {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email,
-        password
-      })
+        password,
+      }),
     })
-    .then(this._getResponse);
+      .then(this._getResponse);
   }
 
   getUser() {
     return fetch(`${this.config.URL}/users/me`, {
       method: 'GET',
-      credentials: 'include'
+      credentials: 'include',
     })
-    .then(this._getResponse);
+      .then(this._getResponse);
   }
 
   getArticles() {
     return fetch(`${this.config.URL}/articles`, {
       method: 'GET',
-      credentials: 'include'
+      credentials: 'include',
     })
-    .then(this._getResponse);
+      .then(this._getResponse);
   }
 
-  createArticle({ keyword, title, text, date, source, link, image }) {
+  createArticle({
+    keyword, title, text, date, source, link, image,
+  }) {
     return fetch(`${this.config.URL}/articles`, {
       method: 'POST',
       credentials: 'include',
@@ -67,18 +69,17 @@ export default class MainApi {
         date,
         source,
         link,
-        image
-      })
+        image,
+      }),
     })
-    .then(this._getResponse);
+      .then(this._getResponse);
   }
 
   delArticle(articleId) {
     return fetch(`${this.config.URL}/articles/${articleId}`, {
       method: 'DELETE',
-      credentials: 'include'
+      credentials: 'include',
     })
-    .then(this._getResponse);
+      .then(this._getResponse);
   }
-
 }

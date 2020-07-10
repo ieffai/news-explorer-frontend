@@ -11,11 +11,11 @@ export default class ResultsInfo {
             <span class="info__ammount">
             ${amount}
             сохранённых статей</span>
-            </div>`
+            </div>`;
   }
 
   _clearContent() {
-    Array.from(this.container.children).forEach(element => {
+    Array.from(this.container.children).forEach((element) => {
       if (!element.classList.contains('info__subtitle')) {
         element.remove();
       }
@@ -28,7 +28,7 @@ export default class ResultsInfo {
                 <span class="info__keyword info__keyword_one">Природа</span>,
                 <span class="info__keyword info__keyword_two">Тайга</span> и
                 <span class="info__keyword info__keyword_three">2 другим</span>
-              </div>`
+              </div>`;
   }
 
   _setContent(element) {
@@ -38,6 +38,6 @@ export default class ResultsInfo {
   renderContent(name, amount) {
     this._clearContent();
     this._setContent(this._titleTemplate(name, amount));
-    this._setContent(this._keyWordsTemplate())
+    this._setContent(this._keyWordsTemplate());
   }
 }

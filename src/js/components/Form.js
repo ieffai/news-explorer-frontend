@@ -1,14 +1,11 @@
-import BaseComponent from "./BaseComponent";
-import constants from "../constants/constants";
+import BaseComponent from './BaseComponent';
+import constants from '../constants/constants';
 
 const {
   BAD_NAME,
   BAD_PASSWORD,
   BAD_EMAIL,
   EMPTY_FIELD,
-  DEFAULT_ERROR,
-  DB_CONFLICT,
-  FORBIDDEN,
 } = constants;
 
 export default class Form extends BaseComponent {
@@ -22,35 +19,29 @@ export default class Form extends BaseComponent {
   }
 
   _setErrMessage(element, message) {
-      element.textContent = message;
+    element.textContent = message;
   }
 
   _validateInput(event) {
     const element = event.target;
     const errElement = element.nextElementSibling;
 
-    if (element.name !== "searchField" && element.validity.valueMissing) {
+    if (element.name !== 'searchField' && element.validity.valueMissing) {
       this._setErrMessage(errElement, EMPTY_FIELD);
-    }
-    else if (element.name === "searchField" && element.validity.valueMissing) {
+    } else if (element.name === 'searchField' && element.validity.valueMissing) {
       element.placeholder = EMPTY_FIELD;
-    }
-    else if (element.type === 'email' && !element.validity.valid) {
+    } else if (element.type === 'email' && !element.validity.valid) {
       this._setErrMessage(errElement, BAD_EMAIL);
-    }
-
-    else if (element.type === 'password' && !element.validity.valid) {
+    } else if (element.type === 'password' && !element.validity.valid) {
       this._setErrMessage(errElement, BAD_PASSWORD);
-    }
-    else if (element.type === 'text' && !element.validity.valid) {
+    } else if (element.type === 'text' && !element.validity.valid) {
       if (element.validity.tooShort) {
         this._setErrMessage(errElement, BAD_NAME);
       }
-    }
-    else {
-      element.name !== "searchField" ?
-      this._setErrMessage(errElement, '') :
-      ''
+    } else {
+      if (element.name !== 'searchField') {
+        this._setErrMessage(errElement, '');
+      }
     }
   }
 
@@ -84,42 +75,40 @@ export default class Form extends BaseComponent {
       {
         event: 'input',
         element: document,
-        callback: this._validateInput
+        callback: this._validateInput,
       },
       {
         event: 'input',
         element: document,
-        callback: this._validateForm
-      }
+        callback: this._validateForm,
+      },
     ]);
   }
 
   _setServerError(status, message) {
     const element = document.querySelector('.popup__server-error');
     this._setErrMessage(element, message);
-    console.log(`Ошибка ${status}`);
   }
 
   serverError(error) {
-    const status = error.status;
+    const { status } = error;
     if (!error.ok) {
       error.text()
-      .then((err) => {
-        this._setServerError(status, JSON.parse(err).message)
-      });
-      return;
+        .then((err) => {
+          this._setServerError(status, JSON.parse(err).message);
+        });
     }
   }
 
   getFormData(formName) {
     const formValues = {};
     const formData = formName.elements;
-    Array.from(formData).forEach(element => {
+    Array.from(formData).forEach((element) => {
       if (element.classList.contains('popup__input')) {
         const valueName = element.name;
         formValues[valueName] = element.value;
       }
     });
-  return formValues;
+    return formValues;
   }
 }

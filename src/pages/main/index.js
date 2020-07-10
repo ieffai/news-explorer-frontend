@@ -1,30 +1,30 @@
-import "./index.css";
+import './index.css';
 
-import Popup from "../../js/components/Popup";
-import Header from "../../js/components/Header";
-import Burger from "../../js/components/Burger";
-import Form from "../../js/components/Form";
-import NewsApi from "../../js/api/NewsApi";
-import MainApi from "../../js/api/MainApi";
-import NewsCardList from "../../js/components/NewsCardList";
-import NEWS_API_CONFIG from "../../js/constants/newsApiConfig";
-import MAIN_API_CONFIG from "../../js/constants/mainApiConfig";
-import NewsCard from "../../js/components/NewsCard";
+import Popup from '../../js/components/Popup';
+import Header from '../../js/components/Header';
+import Burger from '../../js/components/Burger';
+import Form from '../../js/components/Form';
+import NewsApi from '../../js/api/NewsApi';
+import MainApi from '../../js/api/MainApi';
+import NewsCardList from '../../js/components/NewsCardList';
+import NEWS_API_CONFIG from '../../js/constants/newsApiConfig';
+import MAIN_API_CONFIG from '../../js/constants/mainApiConfig';
+import NewsCard from '../../js/components/NewsCard';
 
 const props = {
   theme: 'light',
   focus: 0,
-  isLoggedIn: localStorage.getItem('token') ? true : false,
+  isLoggedIn: !!localStorage.getItem('token'),
   isMain: true,
 };
 
 const cards = {
   foundedNews: [],
-  savedNews: []
+  savedNews: [],
 };
 
-let found = cards.foundedNews;
-let saved = cards.savedNews;
+const found = cards.foundedNews;
+const saved = cards.savedNews;
 const popup = document.querySelector('.popup');
 const popupSignUp = document.getElementById('popupSignUp');
 const popupLogIn = document.getElementById('popupLogin');
@@ -48,41 +48,41 @@ const submit = () => {
   const keyword = form.setKeyword();
   newsCardList._renderLoader(true);
   newsApi
-  .getNews(keyword)
-  .then(result => {
-    newsApi.parseResults(result, keyword, found, props.isLoggedIn, saved);
-    newsCardList.renderResults(found);
-  })
-  .catch((err) => {
-    newsCardList._error(true, err);
-  });
-}
+    .getNews(keyword)
+    .then((result) => {
+      newsApi.parseResults(result, keyword, found, props.isLoggedIn, saved);
+      newsCardList.renderResults(found);
+    })
+    .catch((err) => {
+      newsCardList._error(true, err);
+    });
+};
 const logInPopupFunc = () => {
   logInPopup.close(event);
   signUpPopup.open(event);
-}
+};
 const signUpPopupFunc = () => {
   signUpPopup.close(event);
   logInPopup.open(event);
-}
+};
 
 const successPopupFunc = () => {
   signUpPopup.close(event);
   successPopup.open(event);
-}
+};
 
 const showMore = () => {
   newsCardList.showMoreFunc();
-}
+};
 
 const signUp = (event) => {
   event.preventDefault();
-    const signupForm = document.querySelector('.popup__body');
-    const userData = form.getFormData(signupForm);
-    mainApi
-      .createUser(userData)
-      .then(() => successPopupFunc())
-      .catch((err) => form.serverError(err));
+  const signupForm = document.querySelector('.popup__body');
+  const userData = form.getFormData(signupForm);
+  mainApi
+    .createUser(userData)
+    .then(() => successPopupFunc())
+    .catch((err) => form.serverError(err));
 };
 
 const logIn = (event) => {
@@ -90,80 +90,82 @@ const logIn = (event) => {
   const signinForm = document.querySelector('.popup__body');
   const userData = form.getFormData(signinForm);
   mainApi
-  .login(userData)
-  .then(res => {
-    localStorage.setItem('token', res.token);
-    props.isLoggedIn = true;
-    header.renderLinks();
-    header.getUserName(mainApi.getUser());
-    logInPopup.close();
-  })
+    .login(userData)
+    .then((res) => {
+      localStorage.setItem('token', res.token);
+      props.isLoggedIn = true;
+      header.renderLinks();
+      header.getUserName(mainApi.getUser());
+      logInPopup.close();
+    })
 
-  .catch((err) => form.serverError(err));
-}
+    .catch((err) => form.serverError(err));
+};
 
 const logOut = () => {
   props.isLoggedIn = false;
   localStorage.removeItem('token');
   header.renderLinks();
-
 };
 
 const saveCard = (element) => {
-  let container = element.closest('.results__card');
+  const container = element.closest('.results__card');
   const cardData = newsCard.getCardData(container);
   mainApi.createArticle(cardData)
-  .then(res =>  {
-    container.setAttribute('_id', res._id);
-    newsCard.markUnmark(element);
-  })
-  .catch((err) => {
-    console.log(err);
-  })
+    .then((res) => {
+      container.setAttribute('_id', res._id);
+      newsCard.markUnmark(element);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 const delCard = (element) => {
   const container = element.closest('.results__card');
-  let articleId = container.getAttribute('_id');
+  const articleId = container.getAttribute('_id');
   mainApi.delArticle(articleId)
-  .then(() =>  {
-    container.removeAttribute('_id');
-    newsCard.markUnmark(element);
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-}
+    .then(() => {
+      container.removeAttribute('_id');
+      newsCard.markUnmark(element);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 const tipControl = (element) => {
   const tip = element.nextElementSibling;
   newsCard.toggleTip(tip, props.isLoggedIn);
-}
+};
 
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('header__btn_login')
-      ||
-      event.target.classList.contains('popup__link_reg_btn')) {
-        logInPopupFunc()
+      || event.target.classList.contains('popup__link_reg_btn')) {
+    logInPopupFunc();
   }
   if (event.target.classList.contains('popup__link_log_btn')) {
-        signUpPopupFunc()
+    signUpPopupFunc();
   }
   if (event.target.classList.contains('search-form__button')) {
-        submit();
+    submit();
   }
   if (event.target.classList.contains('results__btn-more')) {
     showMore();
   }
   if (event.target.closest('.bookmark__icon')) {
-    event.target.classList.contains('bookmark__icon_marked')
-    ? delCard(event.target)
-    : saveCard(event.target);
+    if (event.target.classList.contains('bookmark__icon_marked')) {
+      delCard(event.target);
+    } else {
+      saveCard(event.target);
+    }
   }
   if (event.target.classList.contains('popup__btn')) {
-    event.target.id === 'signSubmit'
-    ? signUp(event)
-    : logIn(event);
+    if (event.target.id === 'signSubmit') {
+      signUp(event);
+    } else {
+      logIn(event);
+    }
   }
   if (event.target.classList.contains('header__btn')) {
     logOut();
@@ -179,6 +181,6 @@ document.addEventListener('mouseover', (event) => {
 });
 
 header.render();
-props.isLoggedIn ? header.getUserName(mainApi.getUser()) : '';
-
-
+if (props.isLoggedIn) {
+  header.getUserName(mainApi.getUser());
+}

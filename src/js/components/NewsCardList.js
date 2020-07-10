@@ -1,11 +1,13 @@
-import BaseComponent from "./BaseComponent";
-import Template from "./Template";
-import constants from "../constants/constants";
+import BaseComponent from './BaseComponent';
+import Template from './Template';
+import constants from '../constants/constants';
 
 const template = new Template();
-const { NO_RESULTS,
-        DEFAULT_ERROR,
-        ALLOWED_AMOUNT, } = constants;
+const {
+  NO_RESULTS,
+  DEFAULT_ERROR,
+  ALLOWED_AMOUNT,
+} = constants;
 
 export default class NewsCardList extends BaseComponent {
   constructor(searchContainer) {
@@ -17,18 +19,18 @@ export default class NewsCardList extends BaseComponent {
   _clearContent() {
     const content = this.searchContainer.children;
     if (content) {
-      Array.from(content).forEach(child => {
+      Array.from(content).forEach((child) => {
         child.remove();
       });
     }
   }
 
   _clearCardList(renderedCards) {
-      let i = 0;
-      while (i < renderedCards.length) {
-        renderedCards.splice(i, 1);
-        }
-      return renderedCards
+    const i = 0;
+    while (i < renderedCards.length) {
+      renderedCards.splice(i, 1);
+    }
+    return renderedCards;
   }
 
   _setContent(element, position) {
@@ -43,7 +45,7 @@ export default class NewsCardList extends BaseComponent {
     }
   }
 
-  _error(isActive, error){
+  _error(isActive, error) {
     this._clearContent();
     if (isActive && error) {
       this._setContent(template.noResults(DEFAULT_ERROR), 'beforeend');
@@ -63,10 +65,9 @@ export default class NewsCardList extends BaseComponent {
     if (this.newsCards.length - cardListLength <= 3) {
       cardList.parentNode.lastChild.remove();
     }
-
   }
 
-  _renderNews (articles, container) {
+  _renderNews(articles, container) {
     articles.forEach((article, amount) => {
       if (amount < ALLOWED_AMOUNT) {
         container.appendChild(article);
@@ -80,7 +81,7 @@ export default class NewsCardList extends BaseComponent {
 
   addToSaved(parsedId, card) {
     card._id = parsedId;
-    return card
+    return card;
   }
 
   renderResults(articles) {
@@ -91,7 +92,7 @@ export default class NewsCardList extends BaseComponent {
     } else {
       this._setContent(template.cardList(), 'afterbegin');
       const cardList = this.searchContainer.lastChild.previousElementSibling;
-      this._renderNews(articles, cardList)
+      this._renderNews(articles, cardList);
       this._clearCardList(articles);
     }
   }

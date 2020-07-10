@@ -1,4 +1,5 @@
-import NewsCard from "../components/NewsCard";
+import NewsCard from '../components/NewsCard';
+
 export default class NewsApi {
   constructor(options) {
     this.options = options;
@@ -8,15 +9,16 @@ export default class NewsApi {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject(`Ошибка: ${res.status}`);
+    return Promise.reject(res);
   }
 
   getNews(keyword) {
     return fetch(
       `${this.options.URL}/everything?${this.options.WHERE_LOOKING}=${keyword}&language=${
         this.options.LANG}&sortBy=${this.options.SORT_BY}`,
-      { headers: {'x-api-key': `${this.options.KEY}`} })
-    .then(this._getResponse);
+      { headers: { 'x-api-key': `${this.options.KEY}` } },
+    )
+      .then(this._getResponse);
   }
 
   _articleData(data, keyword) {
@@ -27,7 +29,7 @@ export default class NewsApi {
       date: data.publishedAt,
       source: data.source.name,
       link: data.url,
-      image: data.urlToImage
+      image: data.urlToImage,
     };
   }
 
@@ -40,7 +42,7 @@ export default class NewsApi {
     return false;
   }
 
-  _parseArticleData(article, keyword, foundArticles, isLoggedIn, savedArticles) {
+  _parseArticleData(article, keyword, foundArticles, isLoggedIn) {
     const parsedArticle = this._articleData(article, keyword);
     const newsCard = new NewsCard(parsedArticle);
     foundArticles.push(newsCard.create(false, isLoggedIn));
@@ -53,8 +55,7 @@ export default class NewsApi {
       keyword,
       foundArticles,
       isLoggedIn,
-      savedArticles
+      savedArticles,
     ));
   }
 }
-

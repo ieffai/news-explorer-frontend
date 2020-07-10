@@ -17,7 +17,6 @@ export default {
 
   // Card Properties
   LOG_IN: 'Войдите, чтобы сохранять статьи',
-  DELETE_FROM_SAVED: 'Убрать из сохраненных'
+  DELETE_FROM_SAVED: 'Убрать из сохраненных',
 
-}
-
+};
