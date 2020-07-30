@@ -43,6 +43,7 @@ export default class MainApi {
     return fetch(`${this.config.URL}/users/me`, {
       method: 'GET',
       credentials: 'include',
+      withCredentials: true,
     })
       .then(this._getResponse);
   }

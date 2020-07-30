@@ -83,7 +83,7 @@ export default class ResultsInfo {
             </div>
             <div class="info__keywords">
               По ключевым словам:
-                <span class="info__keyword info__keyword_one"></span>
+                <span class="info__keyword info__keyword_one"></span>,
                 <span class="info__keyword info__keyword_two"></span>
                 <span class="info__keyword info__keyword_three"></span>
               </div>
