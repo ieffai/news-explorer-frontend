@@ -1,5 +1,5 @@
 export default {
-  URL: 'https://praktikum.tk/news/v2',
+  URL: 'https://newsapi.org/v2',
   LANG: 'ru',
   WHERE_LOOKING: 'qInTitle',
   KEY: '0c2a0e2d23f74966ae4a6a0ac521a914',

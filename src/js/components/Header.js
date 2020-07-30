@@ -26,7 +26,7 @@ export default class Header extends BaseComponent {
 
   _exitLink(isMainPage) {
     return `<li class="header__list_exit">
-              <button class="header__btn btn">
+              <button class="header__btn btn header__btn_exit">
                 <span class="btn__text"></span>
                 <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"

@@ -82,4 +82,32 @@ export default class MainApi {
     })
       .then(this._getResponse);
   }
+
+  setCookie(name, value, options) {
+    options = {
+      'max-age': 3600 * 24 * 7,
+      path: '/'
+    };
+    const keys = Object.keys(options);
+    let cookieString = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; `;
+    keys.forEach(key => {
+      cookieString += `${key}=${options[key]}; `;
+    });
+    document.cookie = cookieString;
+    return value;
+  }
+
+  getCookie(name) {
+    const matches = document.cookie.match(
+      new RegExp(`(?:^|; )${name.replace(/([\\.$?*|{}\\(\\)\\[\\]\\\\\/\+^])/g, '\\$1')}=([^;]*)`)
+    );
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+
+  deleteCookie(name) {
+    this.setCookie(name, '', {
+      'max-age': -1
+    });
+    return null;
+  }
 }

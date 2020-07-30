@@ -19,4 +19,6 @@ export default {
   LOG_IN: 'Войдите, чтобы сохранять статьи',
   DELETE_FROM_SAVED: 'Убрать из сохраненных',
 
+  COOKIE_NAME_USER: 'User',
+  COOKIE_NAME_LOGIN: 'isLoggedIn',
 };
