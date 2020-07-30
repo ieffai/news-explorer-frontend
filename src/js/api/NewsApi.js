@@ -15,8 +15,8 @@ export default class NewsApi {
   getNews(keyword) {
     return fetch(
       `${this.options.URL}/everything?${this.options.WHERE_LOOKING}=${keyword}&language=${
-        this.options.LANG}&sortBy=${this.options.SORT_BY}`,
-      { headers: { 'x-api-key': `${this.options.KEY}` } },
+        this.options.LANG}&sortBy=${this.options.SORT_BY}&apiKey=${this.options.KEY}`,
+      // { headers: { 'x-api-key': `${this.options.KEY}` } },
     )
       .then(this._getResponse);
   }
