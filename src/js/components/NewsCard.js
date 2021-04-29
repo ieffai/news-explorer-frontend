@@ -1,26 +1,27 @@
-import BaseComponent from "./BaseComponent";
-import Template from "./Template";
+import BaseComponent from './BaseComponent';
+import Template from './Template';
+
 const template = new Template();
 
 export default class NewsCard extends BaseComponent {
   constructor(data) {
     super();
     this.data = data;
-    // this.card = null;
-
+    this.card = null;
   }
 
   _parseDate(date) {
     const parsedDate = new Date(date);
     return `${parsedDate.toLocaleString('ru', {
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     })}, ${parsedDate.getFullYear()}`;
   }
 
   _setContent(element) {
-    const { _id, keyword, title, text, date, source, link, image } = this.data;
-    element.querySelector('.results__card').setAttribute('_id', String(_id));
+    const {
+      keyword, title, text, date, source, link, image,
+    } = this.data;
     element.querySelector('.bookmark__keyword').textContent = keyword;
     element.querySelector('.card__title').textContent = title;
     element.querySelector('.card__text').textContent = text;
@@ -33,16 +34,33 @@ export default class NewsCard extends BaseComponent {
   }
 
   markUnmark(event) {
-    if (event.target.classList.contains('bookmark__icon')) {
-    event.target.classList.toggle('bookmark__icon_marked');
+    if (event.classList.contains('bookmark__icon')) {
+      event.classList.toggle('bookmark__icon_marked');
     }
-
   }
 
-  create() {
-    const element = template.card();
-    this.card = element.firstChild;
+  toggleTip(event, isLogged) {
+    event.classList.toggle('visible');
+    if (isLogged) {
+      event.textContent = 'Сохранить';
+    }
+  }
 
+  getCardData(element) {
+    const article = [];
+    article.keyword = element.querySelector('.bookmark__keyword').textContent;
+    article.title = element.querySelector('.card__title').textContent;
+    article.text = element.querySelector('.card__text').textContent;
+    article.date = element.querySelector('.card__date').textContent;
+    article.source = element.querySelector('.card__source').textContent;
+    article.link = element.querySelector('.card__link').href;
+    article.image = element.querySelector('.card__image').getAttribute('src');
+    return article;
+  }
+
+  create(isSavedPage, isLogged, id) {
+    const element = template.card(isSavedPage, isLogged, id);
+    this.card = element.firstChild;
     this._setContent(element);
     return this.card;
   }

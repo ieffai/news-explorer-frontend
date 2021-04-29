@@ -12,22 +12,21 @@
 </head>
 <body>
   <div class="root">
-
     <section class="popup">
       <template id="popupSignUp">
-        <form class="popup__body" novalidate>
+        <form class="popup__body" name="signUpForm" novalidate>
           <div class="popup__close"></div>
           <h2 class="popup__title">Регистрация</h2>
           <h3 class="popup__input-name">Email</h3>
-          <input class="popup__input" type="email" placeholder="Ведите вашу почту" required>
+          <input class="popup__input" type="email" placeholder="Ведите вашу почту" required name="email">
           <span class="popup__error"></span>
           <h3 class="popup__input-name">Пароль</h3>
-          <input class="popup__input" type="password" minlength="8" maxlength="30" placeholder="Ведите пароль" required>
+          <input class="popup__input" type="password" minlength="8" maxlength="30" placeholder="Ведите пароль" required name="password">
           <span class="popup__error"></span>
           <h3 class="popup__input-name">Имя</h3>
-          <input class="popup__input" type="text" minlength="2" maxlength="30" placeholder="Ведите свое имя" required>
+          <input class="popup__input" type="text" minlength="2" maxlength="30" placeholder="Ведите свое имя" required name="name">
           <span class="popup__error"></span>
-          <span class="popup__error unvisible">Пользователь с такой почтой уже существует</span>
+          <span class="popup__server-error"></span>
           <button class="btn popup__btn" id="signSubmit" type="submit" disabled>Зарегистрироваться</button>
           <span class="popup__alternative">или
             <span class="popup__link popup__link_log_btn">Войти</span>
@@ -39,12 +38,12 @@
           <div class="popup__close"></div>
           <h2 class="popup__title">Вход</h2>
           <h3 class="popup__input-name">Email</h3>
-          <input class="popup__input" type="email" placeholder="Ведите вашу почту" required>
+          <input class="popup__input" type="email" placeholder="Ведите вашу почту" required name="email">
           <span class="popup__error"></span>
           <h3 class="popup__input-name">Пароль</h3>
-          <input class="popup__input" type="password" minlength="8" maxlength="30" placeholder="Ведите пароль" required>
+          <input class="popup__input" type="password" minlength="8" maxlength="30" placeholder="Ведите пароль" required name="password">
           <span class="popup__error"></span>
-          <span class="popup __error">Неправильные почта или пароль</span>
+          <span class="popup__server-error"></span>
           <button class="btn popup__btn" id="loginSubmit" type="submit" disabled>Войти</button>
           <span class="popup__alternative">или
             <span class="popup__link popup__link_reg_btn">Зарегистрироваться</span>
@@ -55,7 +54,7 @@
         <div class="popup__body">
           <div class="popup__close"></div>
             <h2 class="popup__title">Пользователь успешно зарегистрирован!</h2>
-            <span class="popup__in">Выполнить вход</span>
+            <span class="popup__in popup__link_log_btn">Выполнить вход</span>
         </div>
       </template>
     </section>

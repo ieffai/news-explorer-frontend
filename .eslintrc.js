@@ -16,7 +16,11 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
-    "no-underscore-dangle": ["error",{"allow":["_id"]}],
+    "class-methods-use-this": 0,
+    "no-underscore-dangle": 0,
+    "no-param-reassign": 0,
+    "no-lonely-if": 0,
+    'no-restricted-globals': 0,
   },
 
 };

@@ -7,7 +7,7 @@ export default class MainApi {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject(`Ошибка: ${res.status}`);
+    return Promise.reject(res);
   }
 
   createUser(options) {
@@ -15,13 +15,14 @@ export default class MainApi {
     return fetch(`${this.config.URL}/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
       body: JSON.stringify({
         email,
         password,
-        name
-      })
+        name,
+      }),
     })
-    .then(this._getResponse);
+      .then(this._getResponse);
   }
 
   login(options) {
@@ -32,29 +33,32 @@ export default class MainApi {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email,
-        password
-      })
+        password,
+      }),
     })
-    .then(this._getResponse);
+      .then(this._getResponse);
   }
 
   getUser() {
     return fetch(`${this.config.URL}/users/me`, {
       method: 'GET',
-      credentials: 'include'
+      credentials: 'include',
+      withCredentials: true,
     })
-    .then(this._getResponse);
+      .then(this._getResponse);
   }
 
   getArticles() {
     return fetch(`${this.config.URL}/articles`, {
       method: 'GET',
-      credentials: 'include'
+      credentials: 'include',
     })
-    .then(this._getResponse);
+      .then(this._getResponse);
   }
 
-  createArticle({ keyword, title, text, date, source, link, image }) {
+  createArticle({
+    keyword, title, text, date, source, link, image,
+  }) {
     return fetch(`${this.config.URL}/articles`, {
       method: 'POST',
       credentials: 'include',
@@ -66,17 +70,45 @@ export default class MainApi {
         date,
         source,
         link,
-        image
-      })
+        image,
+      }),
     })
-    .then(this._getResponse);
+      .then(this._getResponse);
   }
 
   delArticle(articleId) {
     return fetch(`${this.config.URL}/articles/${articleId}`, {
       method: 'DELETE',
-      credentials: 'include'
+      credentials: 'include',
     })
-    .then(this._getResponse);
+      .then(this._getResponse);
+  }
+
+  setCookie(name, value, options) {
+    options = {
+      'max-age': 3600 * 24 * 7,
+      path: '/'
+    };
+    const keys = Object.keys(options);
+    let cookieString = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; `;
+    keys.forEach(key => {
+      cookieString += `${key}=${options[key]}; `;
+    });
+    document.cookie = cookieString;
+    return value;
+  }
+
+  getCookie(name) {
+    const matches = document.cookie.match(
+      new RegExp(`(?:^|; )${name.replace(/([\\.$?*|{}\\(\\)\\[\\]\\\\\/\+^])/g, '\\$1')}=([^;]*)`)
+    );
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+
+  deleteCookie(name) {
+    this.setCookie(name, '', {
+      'max-age': -1
+    });
+    return null;
   }
 }

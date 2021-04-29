@@ -2,7 +2,7 @@
   padding: 21px 24px;
   border-radius: 100px;
   border: 0;
-  width: 90%;
+  width: 92%;
   font-weight: normal;
   font-size: 1rem;
   line-height: 1.4;
@@ -12,13 +12,18 @@
   outline: none;
 }
 
+@media screen and (max-width: 1279px) {
+  .search-form__input {
+    width: 93%;
+  }
+}
+
 @media screen and (max-width: 1023px) {
   .search-form__input {
     padding: 17px 24px;
     margin-bottom: 16px;
   }
 }
-
 
 @media screen and (max-width: 767px) {
   .search-form__input {

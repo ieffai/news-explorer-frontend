@@ -1,16 +1,21 @@
-import constants from "../constants/constants";
+import constants from '../constants/constants';
+
 const { LOG_IN, DELETE_FROM_SAVED } = constants;
 
 export default class Template {
   showMore() {
-    return `<button class="results__btn-more btn">Показать еще</button>`
+    return `<button class="results__btn-more btn">
+              Показать еще
+            </button>`;
   }
+
   preloader() {
     return `<div class="results__preloader">
               <div class="preloader__icon"></div>
               <span class="preloader__message">Идет поиск новостей...</span>
             </div>`;
   }
+
   noResults(error) {
     return `<div class="results__no-results">
               <svg width="96" height="96" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,17 +28,20 @@ export default class Template {
               <span class="no-results__error-message">${error}</span>
             </div>`;
   }
+
   cardList() {
     return `<h2 class="results__title">Результаты поиска</h2>
-            <div class="results__cardlist"></div>`
+            <div class="results__cardlist"></div>`;
   }
+
   _keyWord(control) {
-    return `<div class="bookmark__keyword ${control}"></div>`
+    return `<div class="bookmark__keyword ${control}"></div>`;
   }
-  card(isSaved = false, isLogged = false, isMarked = false) {
+
+  card(isSavedPage, isLogged, id) {
     const element = document.createElement('div');
-    const flagBtn = `<button class="bookmark__icon ${isMarked ? 'bookmark__icon_marked' : ''}"
-                    ${isLogged ? '' : 'disabled' }>
+    const flagBtn = `<button class="bookmark__icon"
+                    ${isLogged ? '' : 'disabled'}>
                       <svg  width="14" height="19">
                         <path d="M6.382 12.714L1 16.942V1h12v15.942l-5.382-4.228L7 12.228l-.618.486z" stroke-width="2"/>
                       </svg>
@@ -43,13 +51,13 @@ export default class Template {
                         <path d="M12 0H6v2H0v2h18V2h-6V0zM2 6v11c0 1.1.9 2 2 2h10a2 2 0 002-2V6h-2v11H4V6H2zm4 0v9h2V6H6zm4 0v9h2V6h-2z" />
                       </svg>
                     </button>`;
-    const card = `<article class="results__card">
+    const card = `<article class="results__card" _id="${id}">
     <div class="card__bookmark">
-    ${isSaved ? delBtn : flagBtn}
+    ${isSavedPage ? delBtn : flagBtn}
     <div class="bookmark__tip">
-    ${isSaved ? DELETE_FROM_SAVED : LOG_IN}
+    ${isLogged ? DELETE_FROM_SAVED : LOG_IN}
     </div>
-    ${isSaved ? this._keyWord() : this._keyWord('unvisible')}
+    ${isSavedPage ? this._keyWord() : this._keyWord('unvisible')}
   </div>
                     <a class="card__link" target="_blanck">
                       <img class="card__image">

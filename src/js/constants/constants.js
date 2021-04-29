@@ -5,6 +5,8 @@ export default {
   BAD_PASSWORD: 'Ваш пароль не соответствует необходимым требованиям',
   BAD_EMAIL: 'Введите адрес электронной почты',
   EMPTY_FIELD: 'Это обязательное поле',
+  DB_CONFLICT: 'Пользователь с таким адресом уже зарегистрирован',
+  FORBIDDEN: 'У Вас недостаточно прав',
 
   // Errors
   NO_RESULTS: 'К сожалению по вашему запросу ничего не найдено.',
@@ -15,7 +17,8 @@ export default {
 
   // Card Properties
   LOG_IN: 'Войдите, чтобы сохранять статьи',
-  DELETE_FROM_SAVED: 'Убрать из сохраненных'
+  DELETE_FROM_SAVED: 'Убрать из сохраненных',
 
-}
-
+  COOKIE_NAME_USER: 'User',
+  COOKIE_NAME_LOGIN: 'isLoggedIn',
+};
