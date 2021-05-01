@@ -11,7 +11,7 @@ export default class Header extends BaseComponent {
   _savedNewsLink(isMainPage) {
     return `<li class="header__list_saved ${isMainPage ? 'header__link_unfocused' : ''}">
               <a href="./saved_news" class="header__link">
-                Сохраненные статьи
+                Saved Articles
               </a>
             </li>`;
   }
@@ -19,7 +19,7 @@ export default class Header extends BaseComponent {
   _authLink() {
     return `<li class="header__list_signup">
               <button class="header__btn btn header__btn_login">
-                Авторизоваться
+                Sign In
               </button>
             </li>`;
   }

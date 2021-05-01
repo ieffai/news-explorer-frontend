@@ -1,23 +1,23 @@
 export default {
 
   // Validation
-  BAD_NAME: 'Имя должно содержать от 2 до 30 символов',
-  BAD_PASSWORD: 'Ваш пароль не соответствует необходимым требованиям',
-  BAD_EMAIL: 'Введите адрес электронной почты',
-  EMPTY_FIELD: 'Это обязательное поле',
-  DB_CONFLICT: 'Пользователь с таким адресом уже зарегистрирован',
-  FORBIDDEN: 'У Вас недостаточно прав',
+  BAD_NAME: 'Name must be between 2 and 30 characters',
+  BAD_PASSWORD: 'Your password does not meet the required requirements',
+  BAD_EMAIL: 'Please enter your email',
+  EMPTY_FIELD: 'This is a required field',
+  DB_CONFLICT: 'A user with this address is already registered',
+  FORBIDDEN: 'You dont have enough rights',
 
   // Errors
-  NO_RESULTS: 'К сожалению по вашему запросу ничего не найдено.',
-  DEFAULT_ERROR: 'Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+  NO_RESULTS: 'Unfortunately, your search returned no results.',
+  DEFAULT_ERROR: 'There may be a connection problem or the server is unavailable. Wait a bit and try again',
 
   // CardList Properties
   ALLOWED_AMOUNT: 3,
 
   // Card Properties
-  LOG_IN: 'Войдите, чтобы сохранять статьи',
-  DELETE_FROM_SAVED: 'Убрать из сохраненных',
+  LOG_IN: 'Login to save articles',
+  DELETE_FROM_SAVED: 'Remove from saved',
 
   COOKIE_NAME_USER: 'User',
   COOKIE_NAME_LOGIN: 'isLoggedIn',

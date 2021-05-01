@@ -5,14 +5,14 @@ const { LOG_IN, DELETE_FROM_SAVED } = constants;
 export default class Template {
   showMore() {
     return `<button class="results__btn-more btn">
-              Показать еще
+              Show more
             </button>`;
   }
 
   preloader() {
     return `<div class="results__preloader">
               <div class="preloader__icon"></div>
-              <span class="preloader__message">Идет поиск новостей...</span>
+              <span class="preloader__message">Searching...</span>
             </div>`;
   }
 
@@ -24,13 +24,13 @@ export default class Template {
                 <circle cx="55.5" cy="33.5" r="1.5" fill="#D1D2D6"/>
                 <circle cx="30.5" cy="33.5" r="1.5" fill="#D1D2D6"/>
               </svg>
-              <span class="no-results__error-name">ОШИБКА</span>
+              <span class="no-results__error-name">ERROR</span>
               <span class="no-results__error-message">${error}</span>
             </div>`;
   }
 
   cardList() {
-    return `<h2 class="results__title">Результаты поиска</h2>
+    return `<h2 class="results__title">Search results</h2>
             <div class="results__cardlist"></div>`;
   }
 
