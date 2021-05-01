@@ -1,8 +1,8 @@
 ## **Frontend for @news-api**
 
 This is a service where you can find news on demand and save it in your account.
-Frontend part.
-Back end is <a href="https://github.com/ieffai/news-explorer-api" target="_blank">**here**</a>. Needs to be deployed.
+Frontend part. <br />
+Back end is <a href="https://github.com/ieffai/news-explorer-api" target="_blank">**here**</a>. !!!Needs to be deployed!!!
 
 - **Demo**
 
