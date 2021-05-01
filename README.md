@@ -15,7 +15,7 @@ Back end is <a href="https://github.com/ieffai/news-explorer-api" target="_blank
   - HTML5, CSS, pure JS
   - GIT, Babel, Webpack
 
-## ![news-front](./dist/images/news-demo.png)
+## ![news-front](./src/images/news-demo.png)
 
 ---
 
