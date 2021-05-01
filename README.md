@@ -1,22 +1,23 @@
-**Frontend for @news-api**
-----
+## **Frontend for @news-api**
+
 This is a service where you can find news on demand and save it in your account.
 Frontend part.
- 
-*latest ver. v 0.1.1*
+Back end is <a href="https://github.com/ieffai/news-explorer-api" target="_blank">**here**</a>. Needs to be deployed.
 
-* **Used technologies**
-
-  - HTML5, CSS, JS
-  - GIT, Babel, Webpack
-
-
-* **Links**
+- **Demo**
 
   https://ieffai.github.io/news-explorer-frontend/ <br />
 
+---
 
-<reserved>
+- **Used technologies**
+
+  - HTML5, CSS, pure JS
+  - GIT, Babel, Webpack
+
+## ![news-front](./dist/images/news-demo.png)
+
+---
 
 **For suggestions and errors:**
-  4923920@gmail.com
+4923920@gmail.com
